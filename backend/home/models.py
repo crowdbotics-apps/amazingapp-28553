@@ -9,9 +9,9 @@ class Jokes(models.Model):
     )
     comedian = models.OneToOneField(
         "home.Comedians",
-        on_delete=models.PROTECT,
         null=True,
         blank=True,
+        on_delete=models.PROTECT,
         related_name="jokes_comedian",
     )
 
@@ -20,8 +20,4 @@ class Comedians(models.Model):
     "Generated Model"
     name = models.CharField(
         max_length=256,
-    )
-    joke_id = models.IntegerField(
-        null=True,
-        blank=True,
     )

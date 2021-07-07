@@ -1,3 +1,5 @@
+from .models import Comedians, Jokes
+from django.views.generic import CreateView, UpdateView, DetailView, ListView
 from django.shortcuts import render
 
 

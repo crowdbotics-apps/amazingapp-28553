@@ -9,24 +9,49 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('home', '0001_load_initial_data'),
+        ("home", "0001_load_initial_data"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Comedians',
+            name="Comedians",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('joke_id', models.IntegerField(blank=True, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("joke_id", models.IntegerField(blank=True, null=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Jokes',
+            name="Jokes",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('joke', models.CharField(max_length=10000)),
-                ('comedian', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='jokes_comedian', to='home.Comedians')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("joke", models.CharField(max_length=10000)),
+                (
+                    "comedian",
+                    models.OneToOneField(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="jokes_comedian",
+                        to="home.Comedians",
+                    ),
+                ),
             ],
         ),
     ]
